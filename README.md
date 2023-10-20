@@ -96,3 +96,15 @@ v-once can be used to lock an initial value.
   - When the data changes → ```beforeUpdate()``` → ```updated()```
   - To unmount → ```beforeUnmount()``` → ```unmounted()```
 ---
+## [Section 6](/Section6/cmp-intro-01-starting-setup): Introducing Components
+- Scenario: 
+  - Let's say we have a PhoneBook App, which displays Name, Phone, Email and a button to show and hide the details.
+  - In Template, we will use ```v-for``` to iterate the list of contacts in the contacts [].
+  - When we click on the button, we don’t see just the details of the expected one, but all contacts with each click. 
+  - This type of problem could be solved by using components.
+- The Vue component is an app that belongs to our main app.
+- Multiple Vue Apps vs Multiple Components
+  - Having multiple Vue ( Calls ```createApp()``` multiple times) apps in a single static page is not the best choice, we could opt for SPA( Calls ```createApp()``` only once).
+  - We could write one “root app” and build multiple components.
+  - It is better to build one root app that holds multiple components.
+---
