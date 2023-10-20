@@ -75,3 +75,24 @@ v-once can be used to lock an initial value.
 ## Section 4: Monster Slayer.
   #### [Take me to Monster Slayer](https://tinyurl.com/01MonsterSlayer)
 ---
+## [Section 5](/Section5/behind-scenes-01-starting-setup/): Behind the Scenes
+- Proxy in JS - Helps in updating the existing value and changes the output accordingly.
+- JS is not reactive by default.
+- Each vue app is independent and does not communicate with each other.
+- 1 HTML part per app.
+- We mount out the Vue app to an HTML part, that part is called “Template”
+- refs: Does retrieve when we need them and not on every little change.
+  - ```<input type='text' v-model="enteredValue">```
+    - Here the value entered in the text box is evaluated for every keystroke.
+  - Usage:
+    - Template part: ```<input type= 'text' ref = 'userText'>```
+    - Script part: ```this.message = this.$refs.userText.value;```
+- Virtual Dom: In the Browser, Vue controlled template is rendered in the DOM.
+  - Does not re-render everything.
+  - Compares 2 Virtual DOMs in the memory if there is a change and updates it to the real DOM.
+  - Contains some optimization and does not really create V-DOMs for every change. (Side note)
+- Vue Instance Life Cycle:
+  - ```beforeCreate()``` → ```created()``` –{Compile Template}→ ```beforeMount()``` → ```mounted()``` –{Mounted Vue Instance}
+  - When the data changes → ```beforeUpdate()``` → ```updated()```
+  - To unmount → ```beforeUnmount()``` → ```unmounted()```
+---
