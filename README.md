@@ -108,7 +108,7 @@ v-once can be used to lock an initial value.
   - We could write one “root app” and build multiple components.
   - It is better to build one root app that holds multiple components.
 ---
-## [Section 7] (/Section7): Moving to a Better Development Setup & Workflow with the Vue CLI
+## [Section 7](/Section7): Moving to a Better Development Setup & Workflow with the Vue CLI
 
 What is the VUE CLI? Why do we need it? How does it work? <br>
 
