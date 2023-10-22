@@ -1,5 +1,13 @@
 # LearnVue
-## [Section 1](/Section1/Vue-Complete-FirstAppWithJustJS/): Getting Started 
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section1/Vue-Complete-FirstAppWithJustJS/">Section 1</a>: Getting Started
+    </span>
+</summary>
+ 
+---
+
 - JavaScript Framework
 - Easy to build Interactive and reactive web frontends
 - Different ways of using Vue: Widget and SPA.
@@ -9,8 +17,19 @@
   - To get the entered value from the inputBox we can use the value attribute.
   - To create an element dynamically, we need to use the ```document.createElement``` and we could append it as per our requirement.
   - To append, we can use ```appendChild()``` or ```append()```
+</details>
+
 ---
-## [Section 2](/Section2): Data Binding, Event Binding, Reactivity, and Dynamic Styling.
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section2">Section 2</a>: Data Binding, Event Binding, Reactivity, and Dynamic Styling
+    </span>
+</summary>
+ 
+---
+
 ### Data Binding
 Initially connect HTML to Vue: Contacts Vue 3.
 - ```<script src="https://unpkg.com/vue@next" defer></script>```
@@ -29,11 +48,11 @@ Working with data inside Vue app
 ```v-html:``` output raw HTML content | not advised, cause it allows cross-xScripting.
 ### Event Binding
 ```v-on:``` to add eventListeners.
-Logics are better off in JS files rather than in HTML ones.
-To pass the arguments we need to call the method like a normal one.
-Using the native event Object: event.target.value returns the value in the input
-Can use $event if we are somehow unable to access the event attribute.
-Exploring EventModifier
+- Logics are better off in JS files rather than in HTML ones.
+- To pass the arguments we need to call the method like a normal one.
+- Using the native event Object: event.target.value returns the value in the input
+- Can use ```$event``` if we are somehow unable to access the event attribute.
+- Exploring EventModifier
 - Clicking on the submit button will always result in refreshing the page, this can be prevented by ```preventDefault()``` even in plain vanilla JS. Here we have a Modifier, we could do something like: 
   - ```v-on:submit.prevent``` the same result with a short line of code.
 - If we want to display the name only after the user presses enter then we can do this:
@@ -57,8 +76,19 @@ v-once can be used to lock an initial value.
   - ```:style="{borderColor: boxSelected? 'red': '#ccc'}"```
 - Adding CSS classes Dynamically. ```:{class: prop}```
 - Provides multiple syntaxes: arrayBased or Object-Based.
+</details>
+
 ---
-## [Section 3](/Section3/lists-cond-01-starting-setup): Rendering Conditional Content & Lists
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section3/lists-cond-01-starting-setup">Section 3</a>: Rendering Conditional Content & Lists
+    </span>
+</summary>
+ 
+---
+
 ### Render Content Conditionally 
 - If we have goals, then present the UL, else present the paragraph.
 - Directives :)
@@ -71,11 +101,32 @@ v-once can be used to lock an initial value.
 - To delete a value from an array we use the splice method:
   - ```arr.splice(index, numbOfItemsToDelete);```
 - Keys are unique identifiers for a particular element, It must be binded using v-bind: or simply colon.
+</details>
+
 ---
-## Section 4: Monster Slayer.
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        Section 4: Monster Slayer
+    </span>
+</summary>
+ 
+---
   #### [Take me to Monster Slayer](https://tinyurl.com/01MonsterSlayer)
+</details>
+
 ---
-## [Section 5](/Section5/behind-scenes-01-starting-setup/): Behind the Scenes
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section5/behind-scenes-01-starting-setup/">Section 5</a>: Behind the Scenes
+    </span>
+</summary>
+ 
+---
+
 - Proxy in JS - Helps in updating the existing value and changes the output accordingly.
 - JS is not reactive by default.
 - Each vue app is independent and does not communicate with each other.
@@ -95,8 +146,19 @@ v-once can be used to lock an initial value.
   - ```beforeCreate()``` → ```created()``` –{Compile Template}→ ```beforeMount()``` → ```mounted()``` –{Mounted Vue Instance}
   - When the data changes → ```beforeUpdate()``` → ```updated()```
   - To unmount → ```beforeUnmount()``` → ```unmounted()```
+</details>
+
 ---
-## [Section 6](/Section6/cmp-intro-01-starting-setup): Introducing Components
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section6/cmp-intro-01-starting-setup">Section 6</a>: Introducing Components
+    </span>
+</summary>
+ 
+---
+
 - Scenario: 
   - Let's say we have a PhoneBook App, which displays Name, Phone, Email and a button to show and hide the details.
   - In Template, we will use ```v-for``` to iterate the list of contacts in the contacts [].
@@ -107,8 +169,19 @@ v-once can be used to lock an initial value.
   - Having multiple Vue ( Calls ```createApp()``` multiple times) apps in a single static page is not the best choice, we could opt for SPA( Calls ```createApp()``` only once).
   - We could write one “root app” and build multiple components.
   - It is better to build one root app that holds multiple components.
+
+</details>
+
 ---
-## [Section 7](/Section7): Moving to a Better Development Setup & Workflow with the Vue CLI
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section7">Section 7</a>: Moving to a Better Development Setup & Workflow with the Vue CLI
+    </span>
+</summary>
+ 
+---
 
 What is the VUE CLI? Why do we need it? How does it work? <br>
 
@@ -158,3 +231,6 @@ Adding Styling:
 
 - We can add whatever styling we want inside the style tag in ```App.vue``` config file.
 
+</details>
+
+---
