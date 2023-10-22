@@ -108,3 +108,53 @@ v-once can be used to lock an initial value.
   - We could write one “root app” and build multiple components.
   - It is better to build one root app that holds multiple components.
 ---
+## [Section 7] (/Section7): Moving to a Better Development Setup & Workflow with the Vue CLI
+
+What is the VUE CLI? Why do we need it? How does it work? <br>
+
+Installing Dependencies: <br>
+- To install Node and NPM: [NVM Install](https://github.com/nvm-sh/nvm#installing-and-updating)
+- List the Node Versions available in the local machine: ```nvm ls``` <br>
+- Lists all the Node versions available: ```nvm list-remote``` <br>
+- Install particular version of NVM: ```nvm install v18.18.2``` <br>
+- Check NPM version: ```npm -v``` <br>
+- Check Node version: ```node -v``` <br>
+- Install the Vue CLI: ```npm install -g @vue/cli``` <br>
+- Check Vue version: ```vue -V ``` <br>
+
+Move to the directory where you want to create the  App and type in the command
+
+- ```vue create appNameWithoutSpaces``` <br>
+
+Scenario: We must display contact information on button click.
+- Initially we used CDN to provide the vue support, Now we can proceed in a nice advanced approach.
+- Once vue app is created, we need to download all the dependencies present in the ```packages.json```
+  - ```cd``` to the project folder and type in ```npm install```
+- After this we could see the ```node_modules``` folder containing the dependencies.
+
+In main.js:
+- Installed vue could be imported like:
+  - ``` import {createApp} from 'vue'; ```
+- Initially we use ```const app = Vue.createApp({configs for vue to take care})```
+- Write the config separately in the ```App.vue``` file surrounded by ``` export default ```
+- Then we can import that config file using: ``` import App from './App.vue' ```
+- Now we can createApp like: ``` const app = createApp(App) ```, where App is the config, anyNameIsOK.
+- When using components we need to import them here, like:
+  - ``` import ComponentClassName from './pathToClass/ComponentClassName.vue' ```
+- It can be added to the main vue app by:
+  - ``` app.component('tag-with-hyphen', ComponentClassName); ```
+- Finally this could be mounted like: ``` app.mount('CSS-Class-Selector'); ```
+While Writing code for components, Create a separate directory for components.
+
+In Component File:
+- We can write all the HTML code related to the specific component in the template tag 
+- We can write all the Vue content in the script tag and always do ``` export default ```
+
+In App.vue
+- We can include all the needed components with the tag-name specified in the main.js file.
+- We can also have scripts in this to perform some required operations.
+
+Adding Styling:
+
+- We can add whatever styling we want inside the style tag in ```App.vue``` config file.
+
