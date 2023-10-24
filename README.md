@@ -234,3 +234,75 @@ Adding Styling:
 </details>
 
 ---
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section8">Section 8</a>: Component Communication
+    </span>
+</summary>
+ 
+---
+
+### props: 
+- Just like data properties. This is available in the entire Vue component, including the template.
+- Simplest form takes an array.
+- names must not clash.
+- Uses camelCase, whereas in template it will be kebab case (friend-contact)
+- Used for parent-child communication
+- Unidirectional data flow, Data passed from app must be changed only there & not in the Component.
+- Should not mutate prop
+- Validating Props: 
+  - We can use a JS object, containing our attributes. 
+  - The Value may be another Obj containing: 
+    - ```type```,
+    - ```required```,
+    - ```validator: function(value) {validation logic goes here}```
+    - ```default```
+- Binding All Props:
+  - Prev Approach:
+    - ```<friend-contact``` 
+    - ```:first-name="friend.firstName"```
+    - ```:last-name="friend.lastName"```
+    - ```> </friend-contact>```
+  - Shortened Version:
+    - ```<friend-contact v-bind = "friend" > </friend-contact>```
+      - this will work iff the data property returns ```friend``` object.
+### Custom Events:
+- We can emit custom event to the parent from the child:
+  - ``` this.$emit('any-kebab-case', this.id); ```
+- Then access it in the parent like we use the @click
+  - ```@any-kebab-case="toggleFavoriteStatus"```
+- Defining & Validating Custom Events:
+  - we can specify it like data, methods & computed properties like:
+    - ```emits: [],```
+  - This can also be complicated with objects having a key as the name & value as a function which validates or even to raise a warning.
+  - In this way we can declare all the custom events we need inside this emits attribute.
+  - To delete a friend from a friends array by comparing the id can be done like:
+    - ``` this.friends = this.friends.filter((friend) => friend.id !== id); ```
+### Provide + Inject: To help with pass-through problems
+- Scenario: We display different contents on clicking different buttons.
+- The ```App.vue``` file uses: ``` ActiveElement.vue ``` & ``` KnowledgeBase.vue ```
+- The ```KnowledgeBase.vue``` just tunnels ```topics[]``` to ```KnowledgeGrid.vue```
+- There is a custom event being tunneled from 
+- ```KnowledgeElement.vue``` → ```KnowledgeGrid.vue``` → ```KnowledgeBase.vue```
+- This is sent to the ```App.vue``` to invoke activateTopic method which sets the ```activeTopic```
+- This pass through from ```App.vue``` to ```KnowledgeGrid.vue``` could be simplified by using provide & inject like: 
+  - In ```App.vue```
+    - ```provide() {```
+      - ```return {```
+      - ```topics: this.topics,```
+      - ```};```
+    - ```}```
+  - In ```KnowledgeGrid.vue``` ⇒ ```inject: ['topics']```
+- Communicate only between parent & child 
+- Use provide & inject for pass-through cases, otherwise use normal props & events thingy.
+### Summary:
+- ```Props(parent → child)```
+- ```emit[child → parent]```
+- ```provide() { return something that is needed somewhere}```
+- ```inject: [mention the name of what is provided to use them]```
+
+</details>
+
+---
