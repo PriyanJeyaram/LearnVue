@@ -306,3 +306,61 @@ Adding Styling:
 </details>
 
 ---
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section9/cmp-adv-01-starting-setup">Section 9</a>: Diving Deeper Into Components
+    </span>
+</summary>
+ 
+---
+
+### Content: 
+- Component Registration & Styling
+- Slots & Dynamic Components
+- Naming & Folder Structure
+
+### Global vs Local Component:
+- When the component is Global, it can be accessed anywhere inside the Vue app, in any template.
+- When we use a component only in 1 file, we register it locally by:
+- import: ``` import TheHeader from './components/TheHeader.vue';```
+- inside the export default: ```components: { TheHeader }```
+- Components registered locally can’t be used somewhere else in the App
+
+### Scoped Styles: Affects only that component where we add it.
+- add a scoped attribute like: ```<style scoped>```
+
+### Working with Slots: 
+  - Consider having 3 files, each having some template code that needs to be wrapped by the same element. We could simply declare it as a global style, but we can also use another feature: 
+  - ``` <slot></slot> ```
+  - We can write a separate component and describe it and the content is rendered by ```<slot>``` tag.
+  - Can have only 1 unnamed slot, we can name the slot by: 
+  - In BaseCard.vue: ```<slot name ="header"></slot>```
+  - In UserInfo.vue: ``` <template v-slot: header/default> the content goes here </template> ```
+  #### Slot styling and Compiling:
+  - The style scoped will work only for codes that are not encapsulated in ```<slot>```. 
+  If we want the styling we need to place that styling in the ```BaseCard.vue``` file
+  - If slots did not get any content,
+  - ``` <header v-if="$slots.header">```: this will render the element only if the content is passed.
+  - Or we could simply pass a default content as a replacement.
+  - ShortHand: 
+  - ```v-slot:header``` → ```#header```
+  #### Scoped Slots
+
+### Dynamic Components:
+  - ``` <component :is="variableUpdatedOnButtonClickToMakeItDynamic"></component> ```
+
+  #### Keeping Dynamic Components Alive:
+  - <keep-alive>: they will be cached and not entirely deleted.
+
+### Use of Teleport:
+- Scenario: We have a 2 open dialog if empty text is submitted as a goal. This would normally be nested deep inside the body tag, which is not semantically optimal, so we could use the teleport tag like:
+- ``` <teleport:to="body"> the code to be teleported goes here </teleport>```
+
+- In ```vue 2```, inside ```<template>```,  we could only have only 1 root element and have multiple child elements.
+- But now in ```vue 3```, we can have multiple root elements known as ```fragments```.
+
+</details>
+
+---
