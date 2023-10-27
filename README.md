@@ -2,7 +2,7 @@
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section1">Section 1</a>: Getting Started
+        <a href="/Section01">Section 1</a>: Getting Started
     </span>
 </summary>
  
@@ -24,7 +24,7 @@
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section2">Section 2</a>: Data Binding, Event Binding, Reactivity, and Dynamic Styling
+        <a href="/Section02">Section 2</a>: Data Binding, Event Binding, Reactivity, and Dynamic Styling
     </span>
 </summary>
  
@@ -83,7 +83,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section3">Section 3</a>: Rendering Conditional Content & Lists
+        <a href="/Section03">Section 3</a>: Rendering Conditional Content & Lists
     </span>
 </summary>
  
@@ -121,7 +121,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section5">Section 5</a>: Behind the Scenes
+        <a href="/Section05">Section 5</a>: Behind the Scenes
     </span>
 </summary>
  
@@ -153,7 +153,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section6">Section 6</a>: Introducing Components
+        <a href="/Section06">Section 6</a>: Introducing Components
     </span>
 </summary>
  
@@ -177,7 +177,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section7">Section 7</a>: Moving to a Better Development Setup & Workflow with the Vue CLI
+        <a href="/Section07">Section 7</a>: Moving to a Better Development Setup & Workflow with the Vue CLI
     </span>
 </summary>
  
@@ -238,7 +238,7 @@ Adding Styling:
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section8">Section 8</a>: Component Communication
+        <a href="/Section08">Section 8</a>: Component Communication
     </span>
 </summary>
  
@@ -310,7 +310,7 @@ Adding Styling:
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section9">Section 9</a>: Diving Deeper Into Components
+        <a href="/Section09">Section 9</a>: Diving Deeper Into Components
     </span>
 </summary>
  
@@ -374,7 +374,6 @@ Adding Styling:
  
 ---
 
-Section 11: Forms
 - ```npm install```
 - ```v-model``` when used in the input type= number, automatically converts the default string to number.
 - v-model modifier: ```lazy```, ```trim```
