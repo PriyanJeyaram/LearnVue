@@ -364,3 +364,25 @@ Adding Styling:
 </details>
 
 ---
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section11/forms-01-starting-setup">Section 11</a>: Forms
+    </span>
+</summary>
+ 
+---
+
+Section 11: Forms
+- ```npm install```
+- ```v-model``` when used in the input type= number, automatically converts the default string to number.
+- v-model modifier: ```lazy```, ```trim```
+- For checkbox and radio button: use the ```value``` attribute to differentiate which is which
+- If we have only one checkbox we opt for true or false.
+- We can create our own form component similar to creating other components
+
+</details>
+
+---
+
