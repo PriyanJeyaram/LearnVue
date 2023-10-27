@@ -2,7 +2,7 @@
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section1/Vue-Complete-FirstAppWithJustJS/">Section 1</a>: Getting Started
+        <a href="/Section1">Section 1</a>: Getting Started
     </span>
 </summary>
  
@@ -83,7 +83,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section3/lists-cond-01-starting-setup">Section 3</a>: Rendering Conditional Content & Lists
+        <a href="/Section3">Section 3</a>: Rendering Conditional Content & Lists
     </span>
 </summary>
  
@@ -121,7 +121,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section5/behind-scenes-01-starting-setup/">Section 5</a>: Behind the Scenes
+        <a href="/Section5">Section 5</a>: Behind the Scenes
     </span>
 </summary>
  
@@ -153,7 +153,7 @@ v-once can be used to lock an initial value.
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section6/cmp-intro-01-starting-setup">Section 6</a>: Introducing Components
+        <a href="/Section6">Section 6</a>: Introducing Components
     </span>
 </summary>
  
@@ -310,7 +310,7 @@ Adding Styling:
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section9/cmp-adv-01-starting-setup">Section 9</a>: Diving Deeper Into Components
+        <a href="/Section9">Section 9</a>: Diving Deeper Into Components
     </span>
 </summary>
  
@@ -368,7 +368,7 @@ Adding Styling:
 <details>
 <summary>
     <span style="font-size: 1.4em; font-weight: bold">
-        <a href="/Section11/forms-01-starting-setup">Section 11</a>: Forms
+        <a href="/Section11">Section 11</a>: Forms
     </span>
 </summary>
  
