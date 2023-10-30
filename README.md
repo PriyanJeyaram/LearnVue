@@ -385,3 +385,25 @@ Adding Styling:
 
 ---
 
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section12">Section 12</a>: Sending HTTP Requests
+    </span>
+</summary>
+ 
+---
+
+- Connecting Vue app to the Backend.
+- ``` npm install ```
+- Create a firebase App to access the real-time database feature.
+- Copy the link to use it inside ``` <fetch> ``` 
+- Comment out all the code related to sending and receiving data locally in the vue app.
+- fetch(theLink/anyName.json, {method: , header: {Content-Type}, body: JSON.stringify({})});
+-  ``` fetch ``` returns a ``` promise ```, which can be handled by: ``` then() ```, ``` catch() ``` and ``` async ``` /  ``` await ``` .
+- Error Handling:
+  - ``` throw new Error("Error Message which could be accessed by error.message."); ```
+
+</details>
+
+---
