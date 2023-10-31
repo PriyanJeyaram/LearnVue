@@ -407,3 +407,66 @@ Adding Styling:
 </details>
 
 ---
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section13">Section 13</a>: Routing: Building “Multi-Page” SPAs
+    </span>
+</summary>
+ 
+---
+
+- ``` npm install --save vue-router ```: Adds Routing Functionality
+- import them in the main.js file like:
+  - ``` import {createRouter, createWebHistory} from 'vue-router'; ``` 
+- Now we assign this to a ``` const router ``` and call the ``` createRouter() ```, which contains a JS Object
+  - ``` history: createWebHistory() ``` // tells to look for default browser history.
+  - ``` routes: [{path: '/path', component: 'TheComponentName'}, {},...] ```
+- Now since all the routes have been set, we can now use the router like:
+  - ``` app.use(router); ```// This will let the Vue know the presence of a router.
+- Everything is set, now all that is left is we need to tell the router where to render these components.
+  - We can use: ``` <vue-router></vue-router> ```
+- To route within the application: ``` <router-link to='theRoute'></router-link> ```
+- With this, we can get rid of all the dynamic page loading lines and simply use the routing functionality.
+- We can style the current ``` router-link ``` with the ``` router-link-active ```
+- To move to another page programmatically within the JS file, we can:
+  - ``` this.$router.push('/path'); ```
+- To use Dynamic id like: ```/teams/t1```. we can include it in the routes: like:
+  - ``` /path/:dynamicID ```
+- To get this in the JS file we can use: ``` this.$route.params.dynamicID ```
+- In the ``` <router-link> ``` we can bind the ``` to ``` attribute to dynamically provide value.
+- Scenario: I want to move to ```/teams/t2``` whenever I click on a ```<router-link>```.
+  - If we do this the regular way, only the URL changes and the changes are not affected in the page.
+  - Thus we can use watchers to watch the $route, which changes on every change with the route.
+- We can pass params as props by setting props: true like:
+  - ``` {path:'/teams:tID', component: TeamMembers, props: true} ```
+- We can redirect to the needed component in route config by setting the path to the redirect attribute.
+  - ``` {path:'/', redirect: '/teams'} ```
+- We can also add alias for this, but the upside is that the page is not re-rendered while using the alias.
+- Nested Routes:
+  - We could add children inside of routes to indicate the nested behavior
+- Named Routes:
+  - use the name attribute to give the route a name.
+- Query Parameter:
+  - use the query attribute inside the same to achieve the ``` ?sort=asc ``` type of things
+- Multiple Router Views on same level:
+  - name the ``` <router-view> ``` using the ``` name ``` attribute
+  - Now in the path to that specific route in Main.js, add the components: {}
+    - By default the ``` <router-view> ``` with no name is the default one.
+- The Scroll Feature: 
+  - add it to the createRouter Object as a method: 
+    - ``` scrollBehavior(from, to, savedPosition) { return top:0 left: 0} -usually to move to top ```
+- The Navigation Guard:
+  - ``` router.beforeEach((to, from, next) => {next()}) ``` // next() - allow, next(false) - block
+  - Use ``` beforeEnter() ``` in the main.js file, But if we want to do the same inside the component, the method to use is: ``` beforeRouterEnter() ```
+  - ``` beforeRouteUpdate() ``` - When the component updates with different data.
+  - ``` router.afterEach((to, from)=>{})``` - could be used to send Analytics data to the server.
+  - ``` beforeRouteLeave(to, from, next) ``` - to prevent accidental nav while doing some changes.
+- the meta data:
+  - extra data that can be passed into a component and using these navigation guards we can check for scenarios where the user needs authentication to enter the admin console. So we can set the needsAuth to true in the meta and in the beforeEnter method, we could check for the authenticity.
+- We can separate the route logic from the main.js to router.js and ``` export default router ``` and import it inside of the main.js file.
+
+</details>
+
+---
