@@ -470,3 +470,70 @@ Adding Styling:
 </details>
 
 ---
+
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section15">Section 15</a>: Vuex
+    </span>
+</summary>
+ 
+---
+
+- Better State Management with Vuex.
+- Library for managing global state.
+  - State Types: Local (affects only 1 component), Global (affects multiple components)
+- So Far:
+  - Fat Component, where most of it is not for that component, but for other components.
+  - Unpredictable: It’s not always obvious where the state gets updated, therefore inducing errors.
+- With Vuex: 
+  - Outsourced State Management, 
+  - Predictable state (Set of rules on how and where to change state to reduce errors.)
+- ```npm install && npm install --save vuex && npm run serve```
+- import the vuex into the main.js file like: ``` import {createStore} from 'vuex' ```
+- like ```createApp()``` we have ```createStore({configs})```
+  - Configs contain:
+    - ```state() {return {dataProp: value};}``` – Accessed like → ``` $store.state.dataProp ```
+    - This ```$store.state.dataProp``` could be outsourced to a computed prop.
+- Data change can be done using Mutations which are similar to methods. Each method gets the state as the default argument and payload is optional
+- Once these methods are written, we can use
+  - ``` this.$store.commit('methodName', {payload})``` – Payload can be used when needed.
+- Reading data directly is also not optimal, so we use getters, we need to write getters as methods in components, which can then be called by using – ``` this.$store.getters.getterMethodName ```
+- Each getter method gets 2 parameters: state and getters <Optional>.
+- What if we have code that runs asynchronously? We can solve it by using actions
+  - It is a good practice to put actions between components and mutations
+  - Actions, unlike mutations, can commit asynchronous code.
+  - actions contain methods that perform the commit for us 
+  - Eg: 
+    - ```actions: { ```
+      - ```increment(context) { ```
+        - ```setTimeout(() => {context.commit('increment');}, 2000); ```
+      - ```}```
+    - ```}```
+  - Normally when we write mutations, we just simply commit(), but with actions we dispatch it.
+  - We can also dispatch other actions.
+- Using Mapper Helpers:
+  - We don’t need to drill into the store for values and use it in computed prop, this is done like:
+    - ``` …mapGetters(['ThePropWeNeed']) ```
+  - Similarly inside methods we write code that simply dispatches some actions, this could be done:
+    - ```…mapActions(['TheActionsWeNeed']) ```
+  - Import statements for these are like:
+    - ``` import { mapGetters } from 'vuex'; ```
+    - ``` import { mapActions } from 'vuex'; ```
+- So far: state, mutation, actions && mapActions, getters && mapGetters.
+- We can separate the logic inside the createStore() {} into separate modules and then include them like:
+  - module: {nameYouWant: theModuleName}
+- Inside each module we can only access state from that specific module, In order to access the other states we need to use ```rootState``` and ```rootGetters```
+- ```namespaced: true``` – will detach the specific module from the main store and we need to access them by specifying the namespace before using.
+- The folder structure for much more complex projects can be like: 
+  - store folder 
+    - index.js, mutations.js, actions.js, getters.js
+    - module folder
+      - Module Sub folder
+        - index.js, mutations.js, actions.js, getters.js
+- This helps in some sort of organization of files.
+
+</details>
+
+---
+
