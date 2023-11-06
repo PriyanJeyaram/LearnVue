@@ -30,6 +30,29 @@ export default {
         },
         hasCoaches(state) {
             return state.coaches && state.coaches.length > 0;
-        }
+        },
+        isCoach(_, getters, _2, rootGetters) {
+            const coaches = getters.coaches;
+            const userId = rootGetters.userId;
+            return coaches.some(coach => coach.id === userId);
+        },
     },
+    mutations: {
+        registerCoach(state, payload) {
+            state.coaches.push(payload);
+        },
+    },
+    actions: {
+        registerCoach(context, data) {
+            const coachData = {
+                id: context.rootGetters.userId,
+                firstName: data.first,
+                lastName: data.last,
+                areas: data.areas,
+                description: data.desc,
+                hourlyRate: data.rate,
+            };
+            context.commit('registerCoach', coachData);
+        },
+    }
 }
