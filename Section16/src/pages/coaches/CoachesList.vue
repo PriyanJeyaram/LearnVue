@@ -71,7 +71,7 @@ export default {
         setFilter(updatedFilters) {
             this.activeFilters = updatedFilters;
         },
-        async loadCoaches() {
+        async loadRequests() {
             this.isLoading = true;
             try {
                 await this.$store.dispatch('coaches/loadCoaches');
@@ -85,8 +85,7 @@ export default {
         },
     },
     created() {
-
-        this.loadCoaches();
+        this.loadRequests();
     },
 }
 </script>

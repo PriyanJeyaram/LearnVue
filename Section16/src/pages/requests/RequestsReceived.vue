@@ -1,8 +1,13 @@
 <template>
+    <base-dialog 
+    :show="!!error" 
+    title="Error Occurred, Do something useful!"
+    @close="handleError">{{ error }}</base-dialog>
     <section>
         <base-card>
             <header><h2>Requests Received</h2></header>
-            <ul v-if="hasRequests">
+            <base-spinner v-if="!isLoading"></base-spinner>
+            <ul v-else-if="!this.isLoading && hasRequests">
                 <request-item v-for="req in requests" 
                     :key="req.id" 
                     :email="req.userEmail"
@@ -27,6 +32,26 @@ export default {
         hasRequests() {
             return this.$store.getters['requests/hasRequests'];
         }
+    },
+    data() {
+        return {
+            error: null,
+            isLoading: false,
+        };
+    },
+    methods: {
+        async loadRequests() {
+            this.isLoading = true;
+            try {
+                await this.$store.dispatch('requests/fetchRequests');
+            } catch (error) {
+                this.error = error.message || 'Something went wrong';
+            }
+            this.isLoading = false;
+        },
+        handleError() {
+            this.error = null;
+        },
     }
 };
 </script>
