@@ -33,6 +33,13 @@ export default {
             if (!this.formIsValid) {
                 return;
             }
+            this.$store.dispatch('requests/contactCoach', {
+                coachId: this.$route.params.id,
+                email: this.email,
+                message: this.message,
+            });
+            console.log(this.$store.getters['requests/requests']);
+            this.$router.push('/requests');
         },
     },
 }

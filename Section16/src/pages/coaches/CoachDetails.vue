@@ -11,6 +11,7 @@
                 <h2>Interested? Reach out Now!</h2>
                 <base-button link mode="outline" :to="coachContactLink">Contact</base-button>
             </header>
+            <router-view></router-view>
         </base-card>
     </section>
     <section>
