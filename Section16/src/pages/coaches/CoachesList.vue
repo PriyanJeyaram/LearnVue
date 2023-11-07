@@ -1,9 +1,5 @@
 <template>
-    <base-dialog 
-    :show="!!error" 
-    title="Error Occurred, Do something useful!"
-    @close="handleError"
-    >
+    <base-dialog :show="!!error" title="Error Occurred, Do something useful!" @close="handleError">
         {{ error }}
     </base-dialog>
     <coach-filter @change-filter="setFilter"></coach-filter>
@@ -17,9 +13,15 @@
                 <base-spinner></base-spinner>
             </div>
             <ul v-else-if="hasCoaches">
-                <!-- <li v-for="coach in filteredCoaches" :key="coach.id"> {{ coach.firstName }}</li> -->
-                <coachItem v-for="coach in filteredCoaches" :key="coach.id" :id="coach.id" :firstName="coach.firstName"
-                    :lastName="coach.lastName" :areas="coach.areas" :rate="coach.hourlyRate"></coachItem>
+                <coachItem 
+                    v-for="coach in filteredCoaches" 
+                    :key="coach.id" 
+                    :id="coach.id" 
+                    :firstName="coach.firstName"
+                    :lastName="coach.lastName" 
+                    :areas="coach.areas" 
+                    :rate="coach.hourlyRate"
+                ></coachItem>
             </ul>
             <h3 v-else>No coaches found</h3>
         </base-card>
@@ -71,7 +73,7 @@ export default {
         setFilter(updatedFilters) {
             this.activeFilters = updatedFilters;
         },
-        async loadRequests() {
+        async loadCoaches() {
             this.isLoading = true;
             try {
                 await this.$store.dispatch('coaches/loadCoaches');
@@ -85,7 +87,7 @@ export default {
         },
     },
     created() {
-        this.loadRequests();
+        this.loadCoaches();
     },
 }
 </script>
