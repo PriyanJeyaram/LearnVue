@@ -2,15 +2,15 @@
     <form @submit.prevent="submitForm">
         <div class="form-control">
             <label for="email">Your E-Mail</label>
-            <input type="email" id="email" v-model="email" />
+            <input type="email" id="email" v-model.trim="email" />
         </div>
         <div class="form-control">
             <label for="message">Your Message</label>
-            <textarea id="message" rows="5" v-model="message"></textarea>
+            <textarea id="message" rows="5" v-model.trim="message"></textarea>
         </div>
         <p v-if="!formIsValid" class="errors">Please enter a valid email and message!</p>        
         <div class="actions">
-            <button type="submit">Send Message</button>
+            <base-button>Send Message</base-button>
         </div>
     </form>
 </template>
@@ -38,11 +38,10 @@ export default {
                 email: this.email,
                 message: this.message,
             });
-            console.log(this.$store.getters['requests/requests']);
-            this.$router.push('/requests');
+            this.$router.replace('/coaches');
         },
     },
-}
+};
 </script>
 
 <style scoped>

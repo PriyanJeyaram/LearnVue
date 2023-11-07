@@ -27,6 +27,7 @@ export default {
             const respData = await resp.json();
 
             if (!resp.ok) {
+                console.log(respData);
                 throw new Error(respData.message || 'Failed to send request.');
             }
             
@@ -36,8 +37,10 @@ export default {
             context.commit('addRequest', newRequest);
         },
         async fetchRequests(context) {
+            console.log('fetchingRequests...')
             const coachId = context.rootGetters.userId;
-            const resp = await fetch(`https://findcoach-fc-default-rtdb.firebaseio.com/req/${coachId}.json`);
+            const token = context.rootGetters.token;
+            const resp = await fetch(`https://findcoach-fc-default-rtdb.firebaseio.com/req/${coachId}.json?auth=${token}`);
             const respData = await resp.json();
 
             if (!resp.ok) {
@@ -56,7 +59,7 @@ export default {
                 requests.push(request);
             }
 
-            context.commit('setRequests', requests);
+            context.commit('setRequest', requests);
         }
     },
     getters: {
