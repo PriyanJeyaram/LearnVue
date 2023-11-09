@@ -537,3 +537,46 @@ Adding Styling:
 
 ---
 
+<details>
+<summary>
+    <span style="font-size: 1.4em; font-weight: bold">
+        <a href="/Section19">Section 19</a>: The Composition API - Replacing Options API
+    </span>
+</summary>
+ 
+---
+
+- We use setup() instead of data like: 
+  - ``` setup() {``` 
+    - ``` 	const uName = ref('Priyan');``` 
+    - ``` 	setTimeout(()=>{ uName.value = 'Priyan Jeyaram'; },2000);``` 
+    - ``` 	return {userName: uName};``` 
+  - ``` }``` 
+- We can write in setup() or even ``` <script setup>```  to make it more efficient and less code.
+- Declarations in script setup are directly usable inside the template and there is no need to return or export.
+- We can group similar const into a object and access it like:
+  - ``` objName.value.attributeName ```
+  - If using ``` <script setup>```  we can access it in the template like: ``` {{ objectName.attributeName }} ```
+- Instead of using ref we can opt for reactive, and the only change is how we access it.
+- We need not use ```value``` to access.
+- Ref vs Reactive: Ref is for all kinds of data including objects, whereas reactive is for objects alone.
+- Replacing Computed Props with computed method:
+  - Computed const is READ ONLY.
+    - ``` const uName = computed(() => {return firstName.value + ' ' + lastName.value;}); ```
+- Working with ref {prev in the course we get the data only when we want}
+- All the refs are managed in a similar way.
+- USAGE:
+  - ``` propWeDefined.value.value ```
+- components will not come under the composition API, it is indeed a type of Options API
+- We can use Options API in one file and also different composition API in another file in the same structure.
+- The setup method receives a props object by default when we need it.
+- It also gets a 2nd attribute: context.
+  - We can access the slot and emit using the context attribute.
+- Working with Provide and inject
+  - import provide and inject and use it as methods like: 
+    - ``` provide('userAge', definedRefName) ```
+    - ```const age = inject('userAge') ```
+- LifeCycle: 
+![Composition API LifeCycle Changes](https://tinyurl.com/Comp-API-LC)
+
+![Composition API LifeCycle Changes](Section19/public/CompositionAPI-LifeCycleChanges.png)
